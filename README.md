@@ -1,4 +1,4 @@
-# Recommender-System
+
 The program implemented here gives the user the option to select between four of these widely used Recommender system methods, logistic regression, Non-negative Matrix Factorization, K Nearest Neighbor, and Classification and Regression Trees, in order to build a prediction model for his or her data.
 
 # Recommender System
@@ -56,7 +56,7 @@ Several diﬀerent ranks were tested in order to obtain the most accurate method
 
 
 
-![Figure 1: MAPE for NMF](https://github.com/RoAsad/Recommender-System/blob/master/NMF_data.png?raw=true)
+![Figure 1: MAPE for NMF](https://github.com/RoAsad/Recommender-System/blob/master/assets/NMF_data.png?raw=true)
  
 
 ## 6 Prediction Method 3: K Nearest Neighbor
@@ -68,7 +68,7 @@ K Nearest Neighbor (KNN) is a classical statistical, non-parametric machine lear
 The input data for the predict.usrData() is run through the formUserData() function which organizes the data into an R list, such that one element per user and each such element denotes the ratings made by that user. Predict.usrData() takes origData (of class usrData), newData, newItem, k (the number of nearest neighbors) as arguments. It outputs an R list, of class usrData that has one element per userID, that element, of class usrDatum has userID, itms, and ratings.
 
 
-![ Figure 2: Misclassification Error for KNN](https://github.com/RoAsad/Recommender-System/blob/master/KNN_data.png?raw=true)
+![ Figure 2: Misclassification Error for KNN](https://github.com/RoAsad/Recommender-System/blob/master/assets/KNN_data.png?raw=true)
 
 
 
@@ -100,7 +100,7 @@ Classiﬁcation and Regression Trees (CART) make predictions by assembling a sys
 
 
 
-![Figure 3: Misclassification Error for CART](https://github.com/RoAsad/Recommender-System/blob/master/Tree_data.png?raw=true)
+![Figure 3: Misclassification Error for CART](https://github.com/RoAsad/Recommender-System/blob/master/assets/Tree_data.png?raw=true)
 
 
 
@@ -109,7 +109,7 @@ Figure 3 shows the misclassiﬁcation rate, or the proportion of incorrect predi
 
 
 
-![Figure 4: Optimal CART Structure](https://github.com/RoAsad/Recommender-System/blob/master/tree_structure.png?raw=true)
+![Figure 4: Optimal CART Structure](https://github.com/RoAsad/Recommender-System/blob/master/assets/tree_structure.png?raw=true)
 
 
 
@@ -119,7 +119,7 @@ Figure 3 shows the misclassiﬁcation rate, or the proportion of incorrect predi
 
 
 
-![Figure 5: Results of Cross-validation](https://github.com/RoAsad/Recommender-System/blob/master/cross.png?raw=true)
+![Figure 5: Results of Cross-validation](https://github.com/RoAsad/Recommender-System/blob/master/assets/cross.png?raw=true)
 
 
 
@@ -129,9 +129,9 @@ Figure 3 shows the misclassiﬁcation rate, or the proportion of incorrect predi
 Since a theme of this program is generallity, it is important that the predict function that is called to perform the predictions is done universally across all prediction methods. In order to accomplish this, a recProbs S3 class is created following the creation of each prediction model and loaded with all the necessary data for the recProbs associated predict() function to make its predictions, regardless of the method. Figure 6, shown on the following page, shows the contents of the recProbs class depending on which prediction method is being used. Each object that is created contains a numeric variable, method, which informs the recProbs associated predict() function which prediction method the class decends from and therefore how to make the prediction. For example, if 4 was assigned to method, then the recProbs associated predict() function knows that the data within the recProbs class refers to the node structure of a decision tree and can call the ctree associated predict function. The ﬁrst six lines of output (usig the bult in head() function) are shown, on the next page in ﬁgure 7, when this call is made. Each row represents a user in the newX data rating a speciﬁc item and each element within that row represents the probability that the row speciﬁed user will give the column speciﬁed rating. For example, the ﬁrst user has a 1.9 percent chance of rating the item as 1, a 5.3 percent chance of rating the item as 2, and so on.
 
 
-![Figure 6: RecProbs Class Contents](https://github.com/RoAsad/Recommender-System/blob/master/classes.png?raw=true)
+![Figure 6: RecProbs Class Contents](https://github.com/RoAsad/Recommender-System/blob/master/assets/classes.png?raw=true)
 
-![Figure 7: Program Output](https://github.com/RoAsad/Recommender-System/blob/master/output.png?raw=true)
+![Figure 7: Program Output](https://github.com/RoAsad/Recommender-System/blob/master/assets/output.png?raw=true)
 
 
 
